@@ -7,6 +7,16 @@ class PlayerObject {
 
 
   setup(scene){
+   
+    //*****GLTF*****
+
+    // const loader = new THREE.GLTFLoader().setPath('path/to')
+    // loader.load('model.gltf',  (gltf) => {
+    //   scene.add(gltf.scene)
+    //
+    // })
+
+//******CONE PLACEHOLDER*****
     const geo = new THREE.ConeBufferGeometry(6,8,16)
     const mat = new THREE.MeshNormalMaterial()
     this.mesh = new THREE.Mesh(geo, mat)
