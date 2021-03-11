@@ -1,0 +1,91 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  transition: all 3s;
+}
+
+canvas {
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   z-index: -1;
+ }
+
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+
+
+
+ /*  ~~~~~~~~~~~~~~~~~~~~CHATBOX~~~~~~~~~~~~~~~~~~~~  */
+
+
+#chatUI {
+  width: 40vh;
+  height: 30vh;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+  font-family: monospace;
+}
+
+#scroll {
+  overflow-y: scroll;
+  width: 100%;
+  height: 90%;
+  background-color: rgba(0, 255, 0, 0.5);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  color: #fff;
+}
+
+.user-info {
+  display: inline;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 'footer' thing */
+
+.inputs {
+ height: 10%;
+}
+
+.inputs > input {
+  background: none;
+  color: #fff;
+}
+
+/* spots in the footer */
+
+#username {
+  width: 25%;
+  font-family: monospace;
+}
+
+#message {
+  width: 50%;
+  font-family: monospace;
+}
+
+#submit {
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  display: inline;
+  font-family: monospace;
+
+}
