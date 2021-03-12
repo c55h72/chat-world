@@ -3,12 +3,10 @@ const app = express()
 const http = require('http').createServer(app)
 const bodyParser = require('body-parser')
 const io = require('socket.io')(http)
-const restAPI = require('./my_modules/rest-api.js')
 const socketAPI = require('./my_modules/socket-api.js')
 const port = 8000
 
 app.use(bodyParser.json())
-app.use(restAPI)
 app.use(express.static('www'))
 
 io.on('connection', (socket) => socketAPI(socket, io))
