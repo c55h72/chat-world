@@ -5,6 +5,8 @@ three.js project
 
 static version of the little chat world.
 
+[enter here](https://c55h72.github.io/chat-world/www/index.html)
+
 
 
 
