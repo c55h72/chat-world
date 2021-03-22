@@ -1,10 +1,4 @@
-function randomBG () {
-  setTimeout(randomBG, 3000)
-  const r = Math.floor(Math.random() * 255)
-  const g = Math.floor(Math.random() * 255)
-  const b = Math.floor(Math.random() * 255)
-  document.body.style.background = `rgb(${r}, ${g}, ${b})`
-}
+
 
 function randomUser () {
   const randoNumbo = Math.floor(Math.random() * 10000)
@@ -23,12 +17,19 @@ function newChatBox (username, message) {
   `
 }
 
-function newPlayer(self){
+function sendOut() {
+  const username = document.querySelector('#username').value
+  const message = document.querySelector('#message').value
+  newChatBox(username, message)
+  socket.emit('new-chat-message', { username, message })
+}
+
+function newPlayer(myself){
   const geo = new THREE.ConeBufferGeometry(6,8,16)
   const mat = new THREE.MeshNormalMaterial()
   const cone = new THREE.Mesh(geo, mat)
   scene.add(cone)
   cone.rotation.y = Math.PI / 4
   cone.rotation.x = Math.PI / 16
-  cone.position = self
+  //cone.position = myself
 }

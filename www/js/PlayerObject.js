@@ -17,13 +17,7 @@ class PlayerObject {
 
   draw() {
     this.mesh.rotation.y += .01
-    this.mesh.position.set(camera.position.x,camera.position.y,camera.position.z)
+    this.mesh.position.set(myself)
 
   }
 }
-
-
-//------- good practice --------
-//--- make each object in the scene have its own class?
-//--- where the animations/actions of the object exist too
-//--- it helps organize?

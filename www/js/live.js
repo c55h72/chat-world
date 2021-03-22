@@ -1,7 +1,6 @@
 const socket = io()
 
 window.addEventListener('load', () => {
-  randomBG()
   randomUser()
 })
 
@@ -11,8 +10,11 @@ socket.on('broadcast-message', (data) => {
 
 
 document.querySelector('#submit').addEventListener('click', () => {
-  const username = document.querySelector('#username').value
-  const message = document.querySelector('#message').value
-  newChatBox(username, message)
-  socket.emit('new-chat-message', { username, message })
+  sendOut()
+})
+
+document.querySelector('#message').addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    sendOut()
+  }
 })
