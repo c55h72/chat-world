@@ -164,8 +164,8 @@ function setup(){
 
 //this makes the terrain / loads all the meshes
 
-const loader = new GLTFLoader().setPath('assets/landscape01/')
-loader.load('landscape01.gltf', (gltf) => {
+const loader = new GLTFLoader().setPath('assets/greenland/')
+loader.load('greenland.gltf', (gltf) => {
   const mat = new THREE.MeshNormalMaterial()
   gltf.scene.traverse((child) =>{
     if (child.isMesh) {
@@ -178,8 +178,36 @@ loader.load('landscape01.gltf', (gltf) => {
   gltf.scene.scale.set(100,100,100)
   // objects.push(gltf.scene)
 })
-const loader2 = new GLTFLoader().setPath('assets/snake1/')
-loader2.load('snake1.gltf', (gltf) => {
+const loader2 = new GLTFLoader().setPath('assets/waterplane/')
+loader2.load('waterplane.gltf', (gltf) => {
+  const mat = new THREE.MeshNormalMaterial()
+  gltf.scene.traverse((child) =>{
+    if (child.isMesh) {
+    //  child.material = mat
+      objects.push(child)
+    }
+  })
+  scene.add(gltf.scene)
+  //gltf.scene.position.y = 10
+  gltf.scene.scale.set(100,100,100)
+  // objects.push(gltf.scene)
+})
+const loader3 = new GLTFLoader().setPath('assets/caves/')
+loader3.load('caves.gltf', (gltf) => {
+  const mat = new THREE.MeshNormalMaterial()
+  gltf.scene.traverse((child) =>{
+    if (child.isMesh) {
+    //  child.material = mat
+      objects.push(child)
+    }
+  })
+  scene.add(gltf.scene)
+  //gltf.scene.position.y = 10
+  gltf.scene.scale.set(100,100,100)
+  // objects.push(gltf.scene)
+})
+const loader4 = new GLTFLoader().setPath('assets/cliffs/')
+loader4.load('cliffs.gltf', (gltf) => {
   const mat = new THREE.MeshNormalMaterial()
   gltf.scene.traverse((child) =>{
     if (child.isMesh) {
