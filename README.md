@@ -1,4 +1,4 @@
-# place / space / chat
+# place / space
 
 hills, cliffs, and caves. gltf models made with love using maya & radeon prorenderer. 
 
