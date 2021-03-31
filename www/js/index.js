@@ -130,19 +130,19 @@ function setup(){
 
 //skybox / video
 
-const container = document.getElementById( 'container' );
-const geometry = new THREE.SphereGeometry( 1000, 120, 80 );
-				// invert the geometry on the x-axis so that all of the faces point inward
-				geometry.scale( - 1, 1, 1 );
+// const container = document.getElementById( 'container' );
+// const geometry = new THREE.SphereGeometry( 1000, 120, 80 );
+// 				// invert the geometry on the x-axis so that all of the faces point inward
+// 				geometry.scale( - 1, 1, 1 );
 
-				const video = document.getElementById( 'video' );
-				video.play();
+// 				const video = document.getElementById( 'video' );
+// 				video.play();
 
-				const texture = new THREE.VideoTexture( video );
-				const material = new THREE.MeshBasicMaterial( { map: texture } );
+// 				const texture = new THREE.VideoTexture( video );
+// 				const material = new THREE.MeshBasicMaterial( { map: texture } );
 
-				const mesh = new THREE.Mesh( geometry, material );
-				scene.add( mesh );
+// 				const mesh = new THREE.Mesh( geometry, material );
+// 				scene.add( mesh );
 
 
   //this makes the terrain / loads all the meshes
