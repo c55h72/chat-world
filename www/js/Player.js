@@ -12,7 +12,7 @@ class Player {
   }
 
   setup (scene, camera, player) {
-    const loader = new GLTFLoader().setPath('../assets/snake1/')
+    const loader = new GLTFLoader().setPath('../www/assets/snake1/')
     loader.load('snake1.gltf', (gltf) => {
       const player = gltf.scene
       player.scale.set(100,100,100)

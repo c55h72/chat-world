@@ -205,7 +205,7 @@ function setup(){
 
   snake = new Snake(scene)
 
-  player = new Player(scene, camera)
+//  player = new Player(scene, camera)
 
 //  snake.rotation.y = 2
 
@@ -271,7 +271,7 @@ function draw() {
 
 //console.log(camera.position)
 
-  player.update(camera)
+//  player.update(camera)
 
   renderer.render(scene, camera)
 
