@@ -154,7 +154,10 @@ function setup(){
   loader.load('greenland2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    objects.push(gltf.scene)
+    gltf.scene.traverse((child) =>{
+    if (child.isMesh) {
+      objects.push(child)
+    }
     greenland = gltf.scene
   })
 
@@ -162,32 +165,36 @@ function setup(){
   loader2.load('water.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    objects.push(gltf.scene)
-    water = gltf.scene
+    if (child.isMesh) {
+      objects.push(child)
+    }    water = gltf.scene
   })
 
   loader3 = new GLTFLoader().setPath('assets/caves2/')
   loader3.load('caves2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    objects.push(gltf.scene)
-    caves = gltf.scene
+    if (child.isMesh) {
+      objects.push(child)
+    }    caves = gltf.scene
   })
 
   loader4 = new GLTFLoader().setPath('assets/cliffs2/')
   loader4.load('cliffs2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    objects.push(gltf.scene)
-    cliffs = gltf.scene
+    if (child.isMesh) {
+      objects.push(child)
+    }    cliffs = gltf.scene
   })
 
   loader6= new GLTFLoader().setPath('assets/mush2/')
   loader6.load('mush2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    objects.push(gltf.scene)
-    mushrooms = gltf.scene
+    if (child.isMesh) {
+      objects.push(child)
+    }    mushrooms = gltf.scene
   })
 
 
@@ -203,7 +210,7 @@ function setup(){
   //   snake = gltf.scene
   // })
 
-  snake = new Snake(scene)
+//  snake = new Snake(scene)
 
 //  player = new Player(scene, camera)
 
