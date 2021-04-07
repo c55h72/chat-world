@@ -157,7 +157,7 @@ function setup(){
     gltf.scene.traverse((child) =>{
     if (child.isMesh) {
       objects.push(child)
-    }
+    }})
     greenland = gltf.scene
   })
 
@@ -167,7 +167,8 @@ function setup(){
     gltf.scene.scale.set(100,100,100)
     if (child.isMesh) {
       objects.push(child)
-    }    water = gltf.scene
+    }})
+    water = gltf.scene
   })
 
   loader3 = new GLTFLoader().setPath('assets/caves2/')
@@ -176,7 +177,8 @@ function setup(){
     gltf.scene.scale.set(100,100,100)
     if (child.isMesh) {
       objects.push(child)
-    }    caves = gltf.scene
+    }})
+    caves = gltf.scene
   })
 
   loader4 = new GLTFLoader().setPath('assets/cliffs2/')
@@ -185,7 +187,8 @@ function setup(){
     gltf.scene.scale.set(100,100,100)
     if (child.isMesh) {
       objects.push(child)
-    }    cliffs = gltf.scene
+    }})
+    cliffs = gltf.scene
   })
 
   loader6= new GLTFLoader().setPath('assets/mush2/')
@@ -194,7 +197,8 @@ function setup(){
     gltf.scene.scale.set(100,100,100)
     if (child.isMesh) {
       objects.push(child)
-    }    mushrooms = gltf.scene
+    }})    
+    mushrooms = gltf.scene
   })
 
 
