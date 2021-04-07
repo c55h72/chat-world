@@ -1,12 +1,12 @@
-const socket = io()
+// const socket = io()
 
 window.addEventListener('load', () => {
   randomUser()
 })
 
-socket.on('broadcast-message', (data) => {
-  newChatBox(data.username, data.message)
-})
+// socket.on('broadcast-message', (data) => {
+//   newChatBox(data.username, data.message)
+// })
 
 
 document.querySelector('#submit').addEventListener('click', () => {
