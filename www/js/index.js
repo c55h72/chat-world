@@ -1,6 +1,8 @@
 import * as THREE from '../build/three.module.js';
 import { GLTFLoader } from '../jsm/loaders/GLTFLoader.js';
 import { PointerLockControls } from '../jsm/controls/PointerLockControls.js';
+import { Snake } from './Snake.js'
+import { Player } from './Player.js'
 
 let controls, renderer, scene, camera
 let player
@@ -20,6 +22,7 @@ const vertex = new THREE.Vector3();
 const color = new THREE.Color();
 
 let loader, loader2, loader3, loader4, loader5, loader6
+let water, greenland, mushrooms, cliffs, caves, snake
 
 let isMobile = false; //initiate as false
 
@@ -134,62 +137,77 @@ function setup(){
 // const geometry = new THREE.SphereGeometry( 1000, 120, 80 );
 // 				// invert the geometry on the x-axis so that all of the faces point inward
 // 				geometry.scale( - 1, 1, 1 );
-
+//
 // 				const video = document.getElementById( 'video' );
 // 				video.play();
-
+//
 // 				const texture = new THREE.VideoTexture( video );
 // 				const material = new THREE.MeshBasicMaterial( { map: texture } );
-
+//
 // 				const mesh = new THREE.Mesh( geometry, material );
 // 				scene.add( mesh );
 
 
   //this makes the terrain / loads all the meshes
 
-  const loader = new GLTFLoader().setPath('assets/greenland2/')
+  loader = new GLTFLoader().setPath('assets/greenland2/')
   loader.load('greenland2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
     objects.push(gltf.scene)
+    greenland = gltf.scene
   })
 
-  const loader2 = new GLTFLoader().setPath('assets/water/')
+  loader2 = new GLTFLoader().setPath('assets/water/')
   loader2.load('water.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
     objects.push(gltf.scene)
+    water = gltf.scene
   })
 
-  const loader3 = new GLTFLoader().setPath('assets/caves2/')
+  loader3 = new GLTFLoader().setPath('assets/caves2/')
   loader3.load('caves2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
     objects.push(gltf.scene)
+    caves = gltf.scene
   })
 
-  const loader4 = new GLTFLoader().setPath('assets/cliffs2/')
+  loader4 = new GLTFLoader().setPath('assets/cliffs2/')
   loader4.load('cliffs2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
     objects.push(gltf.scene)
+    cliffs = gltf.scene
   })
 
-  const loader6= new GLTFLoader().setPath('assets/mush2/')
+  loader6= new GLTFLoader().setPath('assets/mush2/')
   loader6.load('mush2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
     objects.push(gltf.scene)
-  })
-
-  const loader5= new GLTFLoader().setPath('assets/snake1/')
-  loader5.load('snake1.gltf', (gltf) => {
-    scene.add(gltf.scene)
-    gltf.scene.scale.set(100,100,100)
-    objects.push(gltf.scene)
+    mushrooms = gltf.scene
   })
 
 
+
+
+
+
+  // loader5= new GLTFLoader().setPath('assets/snake1/')
+  // loader5.load('snake1.gltf', (gltf) => {
+  //   scene.add(gltf.scene)
+  //   gltf.scene.scale.set(100,100,100)
+  //   objects.push(gltf.scene)
+  //   snake = gltf.scene
+  // })
+
+  snake = new Snake(scene)
+
+  player = new Player(scene, camera)
+
+//  snake.rotation.y = 2
 
   //set up renderer
   renderer = new THREE.WebGLRenderer()
@@ -246,13 +264,14 @@ function draw() {
 //~~~~~~~~~~~END CONTROLS~~~~~~~~~~
 
 
+  //snake.traverse()
+  //snake.mesh.rotation.x += 1
 
-// loader5.rotation.x += 1
 
 
+//console.log(camera.position)
 
-console.log(camera.position)
-
+  player.update(camera)
 
   renderer.render(scene, camera)
 
@@ -260,3 +279,4 @@ console.log(camera.position)
 
 
 console.log(scene)
+console.log(snake)
