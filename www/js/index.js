@@ -165,7 +165,8 @@ function setup(){
   loader2.load('water.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    if (child.isMesh) {
+    gltf.scene.traverse((child) =>{
+      if (child.isMesh) {
       objects.push(child)
     }})
     water = gltf.scene
@@ -175,7 +176,8 @@ function setup(){
   loader3.load('caves2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    if (child.isMesh) {
+    gltf.scene.traverse((child) =>{
+      if (child.isMesh) {
       objects.push(child)
     }})
     caves = gltf.scene
@@ -185,7 +187,8 @@ function setup(){
   loader4.load('cliffs2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    if (child.isMesh) {
+    gltf.scene.traverse((child) =>{
+      if (child.isMesh) {
       objects.push(child)
     }})
     cliffs = gltf.scene
@@ -195,9 +198,10 @@ function setup(){
   loader6.load('mush2.gltf', (gltf) => {
     scene.add(gltf.scene)
     gltf.scene.scale.set(100,100,100)
-    if (child.isMesh) {
+    gltf.scene.traverse((child) =>{
+      if (child.isMesh) {
       objects.push(child)
-    }})    
+    }})
     mushrooms = gltf.scene
   })
 
