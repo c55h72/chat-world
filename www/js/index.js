@@ -22,7 +22,7 @@ const vertex = new THREE.Vector3();
 const color = new THREE.Color();
 
 let loader, loader2, loader3, loader4, loader5, loader6
-let water, greenland, mushrooms, cliffs, caves, snake
+let water, greenland, mushrooms, caves, snake, cliffs
 
 let isMobile = false; //initiate as false
 
@@ -157,8 +157,13 @@ function setup(){
     gltf.scene.traverse((child) =>{
     if (child.isMesh) {
       objects.push(child)
+      const loader = new THREE.TextureLoader()
+      child.material = new THREE.MeshBasicMaterial({
+        map: loader.load('assets/imgs/clay.jpg'),
+        side: THREE.DoubleSide
+      })
     }})
-    greenland = gltf.scene
+    window.greenland = gltf.scene
   })
 
   loader2 = new GLTFLoader().setPath('assets/water/')
@@ -168,8 +173,9 @@ function setup(){
     gltf.scene.traverse((child) =>{
       if (child.isMesh) {
       objects.push(child)
+      window.water = child
+
     }})
-    water = gltf.scene
   })
 
   loader3 = new GLTFLoader().setPath('assets/caves2/')
@@ -180,7 +186,7 @@ function setup(){
       if (child.isMesh) {
       objects.push(child)
     }})
-    caves = gltf.scene
+    window.caves = gltf.scene
   })
 
   loader4 = new GLTFLoader().setPath('assets/cliffs2/')
@@ -191,7 +197,7 @@ function setup(){
       if (child.isMesh) {
       objects.push(child)
     }})
-    cliffs = gltf.scene
+    window.cliffs = gltf.scene
   })
 
   loader6= new GLTFLoader().setPath('assets/mush2/')
@@ -202,7 +208,7 @@ function setup(){
       if (child.isMesh) {
       objects.push(child)
     }})
-    mushrooms = gltf.scene
+    window.mushrooms = gltf.scene
   })
 
 
@@ -282,8 +288,6 @@ function draw() {
   //snake.traverse()
   //snake.mesh.rotation.x += 1
 
-
-
 //console.log(camera.position)
 
 //  player.update(camera)
@@ -295,3 +299,8 @@ function draw() {
 
 console.log(scene)
 console.log(snake)
+function cliffRotate() {
+window.cliffs.rotation.x += 1
+}
+
+setInterval(cliffRotate, 1000)
